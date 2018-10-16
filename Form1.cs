@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace PlantillaCorp
 {
-    public partial class Form1 : Form
+    public partial class PlantillaCorp : Form
     {
 
         ArrayList Vector1;
-        public Form1()
+        public PlantillaCorp()
         {
             InitializeComponent();
             Vector1 = new ArrayList();
@@ -39,9 +39,10 @@ namespace PlantillaCorp
                 {
                     Vector1.Add(lista.Text.ToString());
                     string div = "<div class='uk-width-small-1-1 uk-width-medium-1-3 uk-width-large-1-4'>";
-                    string div1 = "\n <div class='catalogo-grid'>";
-                    string cadena = "\n <img src = '/images/jpg/catalogo/rm/uno/" + Convert.ToString(ArrIdOrders[z]) + ".jpg' alt='"+ Convert.ToString(ArrIdOrders[z]) + "' href='/images/jpg/catalogo/rm/uno/"+ Convert.ToString(ArrIdOrders[z]) + ".jpg' data-uk-lightbox='{group:''}' title='"+ Convert.ToString(ArrIdOrders[z]) + "'><a href = '/' >";
-                    plantilla.Text += div + div1 + cadena + Convert.ToString(ArrIdOrders[z]) + "\n </a><hr></div></div>";
+                    string div1 = "<div class='catalogo-grid'>";
+                    string img = "<img src = '/images/jpg/catalogo/rm/" + Convert.ToString(ArrIdOrders[z]) + ".jpg' alt='"+ Convert.ToString(ArrIdOrders[z]) + "' href='/images/jpg/catalogo/rm/uno/"+ Convert.ToString(ArrIdOrders[z]) + ".jpg' data-uk-lightbox='{group:''}' title='"+ Convert.ToString(ArrIdOrders[z]) + "'><a href = '/'>";
+                    string enter = Environment.NewLine;
+                    plantilla.Text += div +enter+ div1 +enter+ img + Convert.ToString(ArrIdOrders[z]) + enter + "</a><hr></div></div>" + enter;
                 }
             }
 
@@ -55,14 +56,10 @@ namespace PlantillaCorp
             //}
         }
 
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
+            plantilla.Clear();
+            lista.Clear();
         }
     }
 }
